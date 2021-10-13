@@ -1,5 +1,8 @@
+FROM docker as buildx
+COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
+
 # Note: You can use any Debian/Ubuntu based image you want. 
-FROM --platform=$BUILDPLATFORM kalilinux/kali-rolling
+FROM --platform=$BUILDPLATFORM kalilinux/kali-rolling as base
 
 # [Option] Enable non-root Docker access in container
 ARG ENABLE_NONROOT_DOCKER="true"
@@ -27,6 +30,9 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
+
+COPY --from=buildx /usr/libexec/docker/cli-plugins/docker-buildx ~/.docker/cli-plugins
+RUN chmod a+x ~/.docker/cli-plugins/docker-buildx
 
 # Install Synth to generate realistic data using a declarative data model.
 RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --force --ci \
