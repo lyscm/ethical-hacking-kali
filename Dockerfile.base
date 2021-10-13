@@ -1,6 +1,11 @@
 # Note: You can use any Debian/Ubuntu based image you want. 
 FROM --platform=$BUILDPLATFORM kalilinux/kali-rolling
 
+# [Option] Enable non-root Docker access in container
+ARG ENABLE_NONROOT_DOCKER="true"
+# [Option] Use the OSS Moby CLI instead of the licensed Docker CLI
+ARG USE_MOBY="true"
+
 ARG OWNER="lyscm"
 ARG REPOSITORY_NAME="ethical-hacking-kali"
 
@@ -8,9 +13,20 @@ LABEL org.opencontainers.image.source https://github.com/$OWNER/$REPOSITORY_NAME
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your
 # own dependencies. A user of "automatic" attempts to reuse an user ID if one already exists.
+ARG USER_NAME=non-root
+ARG USER_UID=8871
+ARG USER_GID=$USER_UID
+COPY library-scripts/*.sh /tmp/library-scripts/
+
 RUN apt-get update && apt dist-upgrade -y \
     && apt-get -y install metasploit-framework \ 
     && apt autoremove
+
+RUN apt-get update \
+    && /bin/bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "/var/run/docker-host.sock" "/var/run/docker.sock" "${USER_NAME}" "${USE_MOBY}" \
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
 # Install Synth to generate realistic data using a declarative data model.
 RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --force --ci \
