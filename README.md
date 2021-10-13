@@ -38,6 +38,7 @@ docker run \
     -d \
     --name $CONTAINER_NAME \
     --restart unless-stopped \
+    -v /var/run/docker.sock:/var/run/docker-host.sock \
     --net=host \
     $TAG
 ```
@@ -48,6 +49,7 @@ docker run `
     -d `
     --name $CONTAINER_NAME `
     --restart unless-stopped `
+    -v /var/run/docker.sock:/var/run/docker-host.sock `
     --net=host `
     $TAG
 ```
