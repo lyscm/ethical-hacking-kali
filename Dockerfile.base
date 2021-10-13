@@ -6,6 +6,13 @@ ARG REPOSITORY_NAME="ethical-hacking-kali"
 
 LABEL org.opencontainers.image.source https://github.com/$OWNER/$REPOSITORY_NAME
 
+# Install needed packages and setup non-root user. Use a separate RUN statement to add your
+# own dependencies. A user of "automatic" attempts to reuse an user ID if one already exists.
+RUN apt-get update -y && apt-get –y && apt dist-upgrade && \
+    apt-get update \
+    && apt-get -y install metasploit-framework \ 
+    && apt autoremove
+
 # Install Synth to generate realistic data using a declarative data model.
-#RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --force --ci \
-#    && export PATH=$PATH:/root/.local/bin
+RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --force --ci \
+    && export PATH=$PATH:/root/.local/bin

@@ -12,7 +12,22 @@
 			}
 		}
 	},
-	"extensions": [],
+	"extensions": [
+		"mutantdino.resourcemonitor",
+		"mechatroner.rainbow-csv",
+		"donjayamanne.githistory",
+		"felipecaputo.git-project-manager",
+		"eamodio.gitlens",
+		"oderwat.indent-rainbow",
+		"ms-azuretools.vscode-docker",
+		"wraith13.bracket-lens",
+		"redhat.vscode-yaml",
+		"coenraads.bracket-pair-colorizer",
+		"aaron-bond.better-comments",
+		"yzhang.markdown-all-in-one",
+		"github.remotehub",
+		"vsls-contrib.codetour"
+	],
 	"shutdownAction": "none",
 	"postCreateCommand": "git config --global user.email 'no-reply@lyscm.github.com' && git config --global user.name 'lyscm'"
 }

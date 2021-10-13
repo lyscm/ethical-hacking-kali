@@ -39,7 +39,6 @@ docker run \
     --name $CONTAINER_NAME \
     --restart unless-stopped \
     --net=host \
-    --privileged \
     $TAG
 ```
 
@@ -50,6 +49,5 @@ docker run `
     --name $CONTAINER_NAME `
     --restart unless-stopped `
     --net=host `
-    --privileged  `
     $TAG
 ```
