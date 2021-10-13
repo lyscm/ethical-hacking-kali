@@ -1,0 +1,9 @@
+# [Required]
+FROM scratch
+
+ARG OWNER="lyscm"
+ARG REPOSITORY_NAME="ethical-hacking-kali"
+
+LABEL org.opencontainers.image.source https://github.com/$OWNER/$REPOSITORY_NAME
+
+COPY extensions.zip .

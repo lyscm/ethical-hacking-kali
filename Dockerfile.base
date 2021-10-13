@@ -1,0 +1,11 @@
+# Note: You can use any Debian/Ubuntu based image you want. 
+FROM --platform=$BUILDPLATFORM kalilinux/kali-rolling
+
+ARG OWNER="lyscm"
+ARG REPOSITORY_NAME="ethical-hacking-kali"
+
+LABEL org.opencontainers.image.source https://github.com/$OWNER/$REPOSITORY_NAME
+
+# Install Synth to generate realistic data using a declarative data model.
+#RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --force --ci \
+#    && export PATH=$PATH:/root/.local/bin

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  
+  # Kali
+  kali:
+    image: ghcr.io/lyscm/environments/kali/base
+    container_name: environments-kali
+    network_mode: "host"
+    init: true
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - ..:/workspace:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    entrypoint: /usr/local/share/docker-init.sh
+    command: sleep infinity 
+
+    privileged: true
+    restart: unless-stopped
