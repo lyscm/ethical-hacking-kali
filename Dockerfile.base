@@ -4,7 +4,7 @@ FROM --platform=$BUILDPLATFORM kalilinux/kali-rolling
 # [Option] Enable non-root Docker access in container
 ARG ENABLE_NONROOT_DOCKER="true"
 # [Option] Use the OSS Moby CLI instead of the licensed Docker CLI
-ARG USE_MOBY="true"
+ARG USE_MOBY="false"
 
 ARG OWNER="lyscm"
 ARG REPOSITORY_NAME="ethical-hacking-kali"
