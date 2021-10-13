@@ -50,5 +50,6 @@ docker run `
     --name $CONTAINER_NAME `
     --restart unless-stopped `
     -v /var/run/docker.sock:/var/run/docker-host.sock `
+    --net=host `
     $TAG
 ```

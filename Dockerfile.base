@@ -33,6 +33,5 @@ RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --fo
     && export PATH=$PATH:/root/.local/bin
 
 RUN apt-get update \
-    && apt install -y iputils-ping \
-    && apt-get -y install net-tools \
+    && apt-get -y install nano net-tools iputils-ping dnsutils whois whatweb \
     && apt autoremove
