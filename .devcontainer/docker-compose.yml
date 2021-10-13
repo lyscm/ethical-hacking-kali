@@ -5,7 +5,7 @@ services:
   # Kali
   kali:
     image: ghcr.io/lyscm/environments/kali/base
-    container_name: environments-kali
+    container_name: ethical-hacking-kali
     network_mode: "host"
     init: true
     volumes:

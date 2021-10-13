@@ -1,8 +1,8 @@
-# RUST ENVIRONMENT BUILDER - REPOSITORY <h1> 
+# KALI ENVIRONMENT BUILDER - REPOSITORY <h1> 
  
-[![build](https://img.shields.io/github/workflow/status/lyscm/environments-rust/environment-rust%20-%20ci?logo=github)](https://github.com/lyscm/environments-rust/blob/master/.github/workflows/build-action.yml)
-[![repo size](https://img.shields.io/github/repo-size/lyscm/environments-rust?logo=github)](https://github.com/lyscm/environments-rust)
-[![package](https://img.shields.io/static/v1?label=package&message=rust&color=yellowgreen&logo=github)](https://github.com/lyscm/environments-rust/pkgs/container/environments%2Frust)
+[![build](https://img.shields.io/github/workflow/status/lyscm/ethical-hacking-kali/environment-kali%20-%20ci?logo=github)](https://github.com/lyscm/ethical-hacking-kali/blob/master/.github/workflows/build-action.yml)
+[![repo size](https://img.shields.io/github/repo-size/lyscm/ethical-hacking-kali?logo=github)](https://github.com/lyscm/ethical-hacking-kali)
+[![package](https://img.shields.io/static/v1?label=package&message=kali&color=yellowgreen&logo=github)](https://github.com/lyscm/ethical-hacking-kali/pkgs/container/ethical%2hacking%2kali)
 
 ## Initiate package(s): <h2> 
 
@@ -11,15 +11,15 @@ Set parameters:
 ***Bash:***
 ```bash
 OWNER=lyscm
-CONTAINER_NAME=rust
-TAG=ghcr.io/lyscm/environments/rust
+CONTAINER_NAME=kali
+TAG=ghcr.io/lyscm/environments/kali
 ```
 
 ***Powershell:***
 ```powershell
 $OWNER="lyscm"
-$CONTAINER_NAME="rust"
-$TAG="ghcr.io/lyscm/environments/rust"
+$CONTAINER_NAME="kali"
+$TAG="ghcr.io/lyscm/environments/kali"
 ```
 
 Remove any existing container:
@@ -32,15 +32,24 @@ docker pull $TAG
 
 Run container:
 
+***Bash:***
 ```bash
 docker run \
     -d \
     --name $CONTAINER_NAME \
     --restart unless-stopped \
-    -v /var/run/docker.sock:/var/run/docker-host.sock \
     --net=host \
-    --cap-add=SYS_PTRACE \
-    --security-opt seccomp:unconfined \
     --privileged \
+    $TAG
+```
+
+***Powershell:***
+```powershell
+docker run `
+    -d `
+    --name $CONTAINER_NAME `
+    --restart unless-stopped `
+    --net=host `
+    --privileged  `
     $TAG
 ```
