@@ -33,5 +33,5 @@ RUN curl --proto '=https' --tlsv1.2 -sSL https://sh.getsynth.com | sh -s -- --fo
     && export PATH=$PATH:/root/.local/bin
 
 RUN apt-get update \
-    && apt-get -y install nano net-tools iputils-ping dnsutils whois whatweb \
+    && apt-get -y install nano net-tools iputils-ping dnsutils whois whatweb theharvester \
     && apt autoremove
