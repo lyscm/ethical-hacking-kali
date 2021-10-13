@@ -1,6 +1,6 @@
 # KALI ENVIRONMENT BUILDER - REPOSITORY <h1> 
  
-[![build](https://img.shields.io/github/workflow/status/lyscm/ethical-hacking-kali/environment-kali%20-%20ci?logo=github)](https://github.com/lyscm/ethical-hacking-kali/blob/master/.github/workflows/build-action.yml)
+[![build](https://img.shields.io/github/workflow/status/lyscm/ethical-hacking-kali/ethical-hacking-kali%20-%20ci?logo=github)](https://github.com/lyscm/ethical-hacking-kali/blob/master/.github/workflows/build-action.yml)
 [![repo size](https://img.shields.io/github/repo-size/lyscm/ethical-hacking-kali?logo=github)](https://github.com/lyscm/ethical-hacking-kali)
 [![package](https://img.shields.io/static/v1?label=package&message=kali&color=yellowgreen&logo=github)](https://github.com/lyscm/ethical-hacking-kali/pkgs/container/ethical%2hacking%2kali)
 
